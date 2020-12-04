@@ -10,8 +10,6 @@ def check(checker, num_list, start_idx, end_idx):
 
     target = num_list[target_idx]
     total = checker + target
-    # print('start_idx({}) end_idx({}) target_idx({}) total({})'.format(
-    #     start_idx, end_idx, target_idx, total))
 
     if total == 2020:
         print('YAY, answer is {} x {} = {}'.format(checker, target, checker * target))
@@ -24,7 +22,6 @@ def check(checker, num_list, start_idx, end_idx):
 
 
 file_input = open("input")
-items = 200
 
 input_list = file_input.read().splitlines()
 num_list = list(map(lambda str: int(str), input_list))
@@ -32,6 +29,8 @@ num_list.sort()
 print(num_list)
 
 for num in num_list:
-    if check(num, num_list, 0, 199):
+    if check(num, num_list, 0, len(num_list) - 1):
         print('Found it')
         break
+
+
