@@ -31,19 +31,18 @@ for line in input_list:
     search = pattern.search(line)
     groupdict = search.groupdict()
 
-    first_pos = int(groupdict['Min'])
-    second_pos = int(groupdict['Max'])
+    first_pos = int(groupdict['Min']) - 1
+    second_pos = int(groupdict['Max']) - 1
     letter = groupdict['Letter']
     password = groupdict['Password']
 
-    first_letter = line[first_pos + 1]
-    second_letter = line[second_pos + 1]
+    first_letter = password[first_pos]
+    second_letter = password[second_pos]
 
     first_valid = first_letter == letter
     second_valid = second_letter == letter
 
     if first_valid or second_valid:
-        print(line)
         if not (first_valid and second_valid):
             valid2 += 1
 
